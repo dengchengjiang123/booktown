@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>尚硅谷会员登录页面</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" >
+	<script src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+			//校验用户名
+			function checkname() {
+				//获取文本框类容
+				var strname=$("#name").val();
+				//设置正则
+				var reg_name=/^\w{6,20}$/;
+			var flag=	reg_name.test(strname);
+			alert(flag)
+			if (flag){
+				$("#name").css("border","1px solid green");
+			}else{
+				$("#name").css("border","1px solid red");
+			}
+				return flag;
+			}
+
+			$(function () {
+				$("#logincheck").submit(function () {
+						return checkname() ;
+				});
+				$("#name").blur(checkname);
+			});
+	</script>
+</head>
+<body>
+		<div id="login_header">
+			<img class="logo_img" alt="" src="img/logo.gif" >
+		</div>
+		
+			<div class="login_banner">
+			
+				<div id="l_content">
+					<span class="login_word">欢迎登录</span>
+				</div>
+				
+				<div id="content">
+					<div class="login_form">
+						<div class="login_box">
+							<div class="tit">
+								<h1>尚硅谷会员</h1>
+								<a href="regist.html">立即注册</a>
+							</div>
+							<div class="msg_cont">
+								<b></b>
+								<span class="errorMsg">请输入用户名和密码</span>
+							</div>
+							<div class="form">
+								<form id="logincheck" action="user">
+									<label>用户名称：</label>
+									<input id="name" class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1" name="username" />
+									<br />
+									<br />
+									<label>用户密码：</label>
+									<input id="password" class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1" name="password" />
+									<br />
+									<br />
+									<input type="submit" value="登录" id="sub_btn" />
+								</form>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		<div id="bottom">
+			<span>
+				邓成江书城.Copyright &copy;2021
+			</span>
+		</div>
+</body>
+</html>
